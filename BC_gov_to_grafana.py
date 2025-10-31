@@ -42,9 +42,10 @@ def rewrite_csv(p):
     ls = g.readlines() 
 
     # reads through csv and copies only read numbers
-    for i in range(100, len(ls)):
+    for i in range(3, len(ls)):
         line = ls[i]
         d, v, non, non = line.split(',')
+
         if str(v) !='NaN':  
             date_times.append(d)
             value.append(float("{:.1f}".format(float(v))))

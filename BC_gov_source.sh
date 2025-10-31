@@ -12,4 +12,4 @@ curl --output SD.zip "https://bcmoe-prod.aquaticinformatics.net/Export/DataSet?D
 curl --output SWE.zip "https://bcmoe-prod.aquaticinformatics.net/Export/DataSet?DataSet=SW.Working%404B17P&Calendar=CALENDARYEAR&DateRange=Days7&UnitID=372&Conversion=Instantaneous&IntervalPoints=PointsAsRecorded&ApprovalLevels=True&Qualifiers=True&Step=1&ExportFormat=csv&Compressed=true&RoundData=False&GradeCodes=True&InterpolationTypes=False&Timezone=0&_=1761922021040"
 
 # Run python script to create grafana csv's
-python url_csv_convert.py
+python BC_gov_to_grafana.py
