@@ -53,9 +53,17 @@ def rewrite_csv(p):
             date_times.append(d)
             value.append(float("{:.1f}".format(float(v))))
 
-    # write to new csv file
-    f = open('csv_data/{}/{}_grafana.csv'.format(station_name, p),mode='w')     # f is a file handle, creates csv_data.txt
-    f.write("Time, {} \n".format(p))
+    # want to append to snow depth file only, rewrite all other parameters
+    write_mode = 'w'
+    if "SD" in csv_name: write_mode = 'a'
+
+    # open new csv file in the correct mode
+    f = open('csv_data/{}/{}_grafana.csv'.format(station_name, p),mode=write_mode)     # f is a file handle, creates csv_data.txt
+    
+    #  write header for the non snow-depth parameters 
+    if not (write_mode == 'a'):
+        f.write("Time, {} \n".format(p))
+
     for i in range((len(value))):
         f.write("{},{} \n".format(date_times[i], value[i]))
 
